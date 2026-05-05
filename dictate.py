@@ -3,6 +3,8 @@ import tempfile
 import threading
 import tkinter as tk
 import time
+import warnings
+warnings.filterwarnings("ignore")
 
 import numpy as np
 import sounddevice as sd
