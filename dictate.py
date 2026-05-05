@@ -80,7 +80,9 @@ def transcribe_and_type(audio_data):
         wav.write(temp_path, SAMPLE_RATE, audio_data)
         result = model.transcribe(temp_path)
         text = result["text"].strip()
-        if text:
+        if text.lower().strip(".,!?") == "quit":
+            root.after(0, root.destroy)
+        elif text:
             kb.type(text + " ")
             print(f"Typed: {text}")
         else:
